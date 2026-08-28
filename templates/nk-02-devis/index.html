@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Devis Express — calculateur intégrable | Complément NK-01</title>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   TEMPLATE NK-02 « DEVIS EXPRESS » — order bump du produit 8.
+   Un bloc à coller dans n'importe quelle page. Même charte que NK-01.
+   À personnaliser : le bloc :root ci-dessous + la grille TARIFS en bas.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --nk-fond:#07171C; --nk-encre:#E7F2EA; --nk-brume:#93AFAE;
+  --nk-accent:#8FE0A8; --nk-teal:#6FC9C4; --nk-alerte:#E0A08C;
+  --nk-titre:"Georgia","Times New Roman",serif;
+  --nk-texte:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --nk-trait:color-mix(in srgb,var(--nk-encre) 14%,transparent);
+  --nk-carte:color-mix(in srgb,var(--nk-encre) 5%,transparent);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--nk-fond);color:var(--nk-encre);font-family:var(--nk-texte);
+  font-size:17px;line-height:1.6;padding:56px 22px}
+.hote{max-width:980px;margin:0 auto}
+.sur{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--nk-teal);margin-bottom:10px}
+h1{font-family:var(--nk-titre);font-weight:400;font-size:clamp(30px,4.4vw,44px);line-height:1.12}
+.intro{color:var(--nk-brume);max-width:62ch;margin:12px 0 40px}
+
+/* ── LE BLOC À COLLER ── */
+.nk-devis{display:grid;grid-template-columns:1.15fr .85fr;gap:0;
+  border:1px solid var(--nk-trait);border-radius:18px;overflow:hidden;background:var(--nk-carte)}
+@media(max-width:840px){.nk-devis{grid-template-columns:1fr}}
+.nk-q{padding:32px}
+.nk-r{padding:32px;background:color-mix(in srgb,var(--nk-teal) 8%,var(--nk-fond));
+  border-left:1px solid var(--nk-trait);display:flex;flex-direction:column;justify-content:space-between}
+@media(max-width:840px){.nk-r{border-left:0;border-top:1px solid var(--nk-trait)}}
+.nk-q h2{font-family:var(--nk-titre);font-weight:400;font-size:24px;margin-bottom:4px}
+.nk-q .aide{color:var(--nk-brume);font-size:14.5px;margin-bottom:22px}
+fieldset{border:0;margin-bottom:22px}
+legend{font-size:14px;color:var(--nk-brume);margin-bottom:9px}
+.choix{display:flex;flex-wrap:wrap;gap:9px}
+.choix label{border:1px solid var(--nk-trait);border-radius:999px;padding:9px 16px;font-size:15px;
+  cursor:pointer;user-select:none;transition:.15s}
+.choix input{position:absolute;opacity:0;pointer-events:none}
+.choix input:checked+span{color:var(--nk-fond)}
+.choix label:has(input:checked){background:var(--nk-accent);border-color:var(--nk-accent);color:var(--nk-fond);font-weight:600}
+.choix label:focus-within{outline:2px solid var(--nk-teal);outline-offset:2px}
+.curseur{display:flex;align-items:center;gap:16px}
+input[type=range]{flex:1;accent-color:var(--nk-accent)}
+.val{font-family:var(--nk-titre);font-size:26px;min-width:104px;text-align:right}
+.val small{font-size:14px;color:var(--nk-brume);font-family:var(--nk-texte)}
+
+.montant{font-family:var(--nk-titre);font-size:clamp(38px,6vw,54px);line-height:1;color:var(--nk-accent)}
+.montant span{font-size:20px;color:var(--nk-brume)}
+.fourchette{font-size:14px;color:var(--nk-brume);margin-top:8px}
+.detail{margin:24px 0;border-top:1px solid var(--nk-trait)}
+.detail div{display:flex;justify-content:space-between;gap:14px;padding:11px 0;
+  border-bottom:1px solid var(--nk-trait);font-size:15px}
+.detail div span:last-child{color:var(--nk-brume);white-space:nowrap}
+.honnete{font-size:13.5px;color:var(--nk-alerte);margin-bottom:18px}
+.btn{display:block;text-align:center;background:var(--nk-accent);color:var(--nk-fond);
+  text-decoration:none;font-weight:650;padding:15px 24px;border-radius:10px;border:0;
+  cursor:pointer;font:inherit;font-weight:650;width:100%}
+.mini{font-size:13px;color:var(--nk-brume);margin-top:11px;text-align:center}
+.notice{margin-top:34px;font-size:14.5px;color:var(--nk-brume);border-left:2px solid var(--nk-teal);padding-left:16px}
+</style>
+</head>
+<body>
+<div class="hote">
+  <p class="sur">Complément du template NK-01</p>
+  <h1>Devis Express — le visiteur repart avec un prix.</h1>
+  <p class="intro">Un bloc autonome, sans dépendance, à coller dans la page d'un client. Il transforme un « combien ça coûte ? » silencieux en demande de rappel qualifiée. La grille de prix se règle en une ligne, en bas du fichier.</p>
+
+  <!-- ══ DÉBUT DU BLOC À COLLER ══ -->
+  <div class="nk-devis" id="nkDevis">
+    <div class="nk-q">
+      <h2>Estimez votre toiture</h2>
+      <p class="aide">Trois réponses, une fourchette immédiate. Aucune adresse mail demandée pour voir le prix.</p>
+
+      <fieldset>
+        <legend>Ce que vous voulez faire</legend>
+        <div class="choix" data-champ="travaux">
+          <label><input type="radio" name="travaux" value="couverture" checked><span>Refaire la couverture</span></label>
+          <label><input type="radio" name="travaux" value="charpente"><span>Charpente + couverture</span></label>
+          <label><input type="radio" name="travaux" value="reparation"><span>Réparer une fuite</span></label>
+          <label><input type="radio" name="travaux" value="combles"><span>Aménager les combles</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Surface de toiture</legend>
+        <div class="curseur">
+          <input type="range" id="surface" min="20" max="300" step="5" value="120">
+          <div class="val" id="surfaceVal">120 <small>m²</small></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Matériau souhaité</legend>
+        <div class="choix" data-champ="materiau">
+          <label><input type="radio" name="materiau" value="tuile" checked><span>Tuile terre cuite</span></label>
+          <label><input type="radio" name="materiau" value="ardoise"><span>Ardoise</span></label>
+          <label><input type="radio" name="materiau" value="zinc"><span>Zinc</span></label>
+          <label><input type="radio" name="materiau" value="nsp"><span>Je ne sais pas</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset style="margin-bottom:0">
+        <legend>État de l'existant</legend>
+        <div class="choix" data-champ="etat">
+          <label><input type="radio" name="etat" value="bon" checked><span>Correct</span></label>
+          <label><input type="radio" name="etat" value="use"><span>Usé</span></label>
+          <label><input type="radio" name="etat" value="hs"><span>À déposer entièrement</span></label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="nk-r">
+      <div>
+        <p style="font-size:14px;color:var(--nk-brume);margin-bottom:10px">Estimation, TVA 10 % comprise</p>
+        <div class="montant" id="montant">— <span>€</span></div>
+        <p class="fourchette" id="fourchette">Fourchette basse – haute</p>
+        <div class="detail" id="detail"></div>
+      </div>
+      <div>
+        <p class="honnete" id="honnete"></p>
+        <button class="btn" id="valider">Recevoir le devis exact sous 24 h</button>
+        <p class="mini">Estimation indicative. Seule la visite engage le prix.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    /* ══ GRILLE TARIFS — la seule chose à changer par client (€ HT / m²) ══ */
+    var TARIFS = {
+      base:      { couverture:95, charpente:230, reparation:0, combles:410 },
+      materiau:  { tuile:1, ardoise:1.35, zinc:1.5, nsp:1.15 },
+      etat:      { bon:1, use:1.12, hs:1.28 },
+      depose:    18,      // dépose de l'ancienne couverture, € / m²
+      forfaitRep:[380,1400], // réparation ponctuelle : forfait, pas de m²
+      marge:     0.12,    // largeur de la fourchette (± %)
+      tva:       1.10
+    };
+    /* ═══════════════════════════════════════════════════════════════════ */
+
+    var d=document, bloc=d.getElementById('nkDevis');
+    var euro=new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0});
+    function lu(n){ return bloc.querySelector('input[name="'+n+'"]:checked').value; }
+
+    function calcule(){
+      var t=lu('travaux'), m=lu('materiau'), e=lu('etat'),
+          s=+d.getElementById('surface').value, lignes=[], ht;
+
+      if(t==='reparation'){
+        ht=TARIFS.forfaitRep[0]*TARIFS.etat[e];
+        lignes.push(['Intervention ponctuelle','forfait']);
+        lignes.push(['Déplacement et sécurisation','compris']);
+      }else{
+        var pm=TARIFS.base[t]*TARIFS.materiau[m]*TARIFS.etat[e];
+        ht=pm*s;
+        lignes.push([ t==='combles'?'Aménagement':'Fourniture et pose', euro.format(Math.round(pm))+' € / m²' ]);
+        lignes.push(['Surface retenue', s+' m²']);
+        if(e==='hs'){ ht+=TARIFS.depose*s; lignes.push(['Dépose et évacuation', euro.format(TARIFS.depose*s)+' €']); }
+        lignes.push(['Écran sous-toiture et fixations','compris']);
+      }
+      var ttc=ht*TARIFS.tva, bas=ttc*(1-TARIFS.marge), haut=ttc*(1+TARIFS.marge);
+
+      d.getElementById('montant').innerHTML=euro.format(Math.round(ttc/50)*50)+' <span>€</span>';
+      d.getElementById('fourchette').textContent='Entre '+euro.format(Math.round(bas/50)*50)+' € et '+euro.format(Math.round(haut/50)*50)+' € selon accès et hauteur';
+      d.getElementById('detail').innerHTML=lignes.map(function(l){
+        return '<div><span>'+l[0]+'</span><span>'+l[1]+'</span></div>'; }).join('');
+
+      /* ce que le bloc refuse de faire semblant de savoir */
+      var honnete='';
+      if(t==='combles') honnete="L'ouverture de toit et l'escalier ne sont pas chiffrables sans visite.";
+      else if(t==='reparation') honnete="Une fuite se chiffre sur place : le forfait couvre le déplacement et le diagnostic.";
+      else if(m==='nsp') honnete="Matériau non choisi : la fourchette est calculée sur une moyenne.";
+      else if(s>220) honnete="Au-delà de 220 m², l'échafaudage change le prix. On l'ajoute après visite.";
+      d.getElementById('honnete').textContent=honnete;
+    }
+
+    bloc.addEventListener('input',function(ev){
+      if(ev.target.id==='surface') d.getElementById('surfaceVal').innerHTML=ev.target.value+' <small>m²</small>';
+      calcule();
+    });
+    d.getElementById('valider').addEventListener('click',function(){
+      var r=bloc.querySelector('.nk-r');
+      r.innerHTML='<div><p style="font-size:14px;color:var(--nk-brume);margin-bottom:10px">Dernière étape</p>'+
+        '<h2 style="font-family:var(--nk-titre);font-weight:400;font-size:24px">Votre numéro, et on vous rappelle.</h2>'+
+        '<p style="color:var(--nk-brume);font-size:14.5px;margin-top:8px">Estimation conservée : '+
+        d.getElementById('montant').textContent.trim()+'</p>'+
+        '<label style="display:block;font-size:14px;color:var(--nk-brume);margin:22px 0 6px">Téléphone</label>'+
+        '<input id="tel" type="tel" style="width:100%;background:var(--nk-fond);border:1px solid var(--nk-trait);color:var(--nk-encre);border-radius:9px;padding:13px;font:inherit;font-size:16px">'+
+        '<label style="display:block;font-size:14px;color:var(--nk-brume);margin:16px 0 6px">Commune</label>'+
+        '<input id="ville" style="width:100%;background:var(--nk-fond);border:1px solid var(--nk-trait);color:var(--nk-encre);border-radius:9px;padding:13px;font:inherit;font-size:16px">'+
+        '</div><div><button class="btn" id="envoyer" style="margin-top:22px">Envoyer</button>'+
+        '<p class="mini">Un rappel, pas une newsletter.</p></div>';
+      d.getElementById('envoyer').addEventListener('click',function(){
+        /* Brancher ici : fetch(\'/api/lead\', …) ou webhook n8n */
+        r.innerHTML='<div><h2 style="font-family:var(--nk-titre);font-weight:400;font-size:26px">C\'est noté.</h2>'+
+          '<p style="color:var(--nk-brume);margin-top:10px">On vous rappelle aujourd\'hui avant 19 h avec une date de visite.</p></div>';
+      });
+    });
+    calcule();
+  })();
+  </script>
+  <!-- ══ FIN DU BLOC À COLLER ══ -->
+
+  <p class="notice">Trois choses que ce bloc fait et qu'un formulaire ne fait pas : il donne le prix <b>avant</b> de demander le numéro, il dit à voix haute ce qu'il ne sait pas chiffrer, et il envoie un lead qui connaît déjà l'ordre de grandeur — donc qui ne recule pas au moment du devis.</p>
+</div>
+</body>
+</html>

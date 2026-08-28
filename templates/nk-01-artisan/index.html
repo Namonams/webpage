@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atelier Nord — Charpente & rénovation | Devis sous 24 h</title>
+<meta name="description" content="Charpente, toiture et rénovation dans un rayon de 40 km. Devis chiffré sous 24 h, chantier daté avant signature.">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   TEMPLATE NK-01 « ATELIER » — produit 8, site vitrine artisan
+   CHARTE : ne toucher QUE ce bloc pour changer de client.
+   Six variables. Rien d'autre à chercher dans le fichier.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --nk-fond:      #07171C;   /* fond de page          */
+  --nk-encre:     #E7F2EA;   /* texte principal       */
+  --nk-brume:     #93AFAE;   /* texte secondaire      */
+  --nk-accent:    #8FE0A8;   /* boutons, chiffres     */
+  --nk-teal:      #6FC9C4;   /* second accent         */
+  --nk-alerte:    #E0A08C;   /* urgence, dispo        */
+
+  --nk-titre: "Georgia", "Times New Roman", serif;
+  --nk-texte: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --nk-carte: color-mix(in srgb, var(--nk-encre) 5%, transparent);
+  --nk-trait: color-mix(in srgb, var(--nk-encre) 14%, transparent);
+  --nk-max: 1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--nk-fond);color:var(--nk-encre);font-family:var(--nk-texte);
+     font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--nk-max);margin:0 auto;padding:0 22px}
+section{padding:88px 0;border-top:1px solid var(--nk-trait)}
+h1,h2,h3{font-family:var(--nk-titre);font-weight:400;line-height:1.12;letter-spacing:-.01em}
+h2{font-size:clamp(28px,4vw,42px);margin-bottom:14px}
+.sur{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--nk-teal);margin-bottom:12px}
+.sous{color:var(--nk-brume);max-width:60ch}
+
+/* ── barre ── */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--nk-fond) 82%,transparent);border-bottom:1px solid var(--nk-trait)}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;
+  max-width:var(--nk-max);margin:0 auto;gap:18px}
+.logo{font-family:var(--nk-titre);font-size:20px;display:flex;align-items:center;gap:9px}
+.logo svg{width:18px;height:18px;fill:var(--nk-accent)}
+nav{display:flex;gap:22px;font-size:15px;color:var(--nk-brume)}
+nav a{text-decoration:none}
+nav a:hover{color:var(--nk-encre)}
+@media(max-width:860px){nav{display:none}}
+.tel{white-space:nowrap;font-weight:600;text-decoration:none;border:1px solid var(--nk-trait);
+  padding:9px 15px;border-radius:999px;font-size:15px}
+
+/* ── boutons ── */
+.btn{display:inline-block;background:var(--nk-accent);color:var(--nk-fond);text-decoration:none;
+  font-weight:650;padding:15px 26px;border-radius:10px;border:0;cursor:pointer;font-size:16px}
+.btn:hover{filter:brightness(1.08)}
+.btn2{background:transparent;color:var(--nk-encre);border:1px solid var(--nk-trait)}
+
+/* ── hero ── */
+.hero{padding:92px 0 76px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;border:0}
+.hero h1{font-size:clamp(38px,6vw,66px)}
+.hero p.acc{color:var(--nk-brume);font-size:19px;margin:20px 0 30px;max-width:46ch}
+.dispo{display:inline-flex;align-items:center;gap:9px;font-size:14px;color:var(--nk-alerte);
+  border:1px solid color-mix(in srgb,var(--nk-alerte) 35%,transparent);padding:7px 13px;
+  border-radius:999px;margin-bottom:22px}
+.pt{width:7px;height:7px;border-radius:50%;background:var(--nk-alerte)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.rassure{margin-top:22px;font-size:14px;color:var(--nk-brume)}
+.visuel{aspect-ratio:4/5;border-radius:16px;border:1px solid var(--nk-trait);
+  background:linear-gradient(155deg,color-mix(in srgb,var(--nk-teal) 22%,var(--nk-fond)),var(--nk-fond) 70%);
+  display:flex;align-items:flex-end;padding:22px}
+.visuel span{font-size:13px;color:var(--nk-brume)}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:34px;padding-top:56px}.visuel{aspect-ratio:16/11}}
+
+/* ── chiffres ── */
+.chiffres{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--nk-trait);
+  border:1px solid var(--nk-trait);border-radius:14px;overflow:hidden}
+.chiffres div{background:var(--nk-fond);padding:26px 20px}
+.chiffres b{display:block;font-family:var(--nk-titre);font-size:34px;color:var(--nk-accent);font-weight:400}
+.chiffres small{color:var(--nk-brume);font-size:14px}
+@media(max-width:720px){.chiffres{grid-template-columns:1fr 1fr}}
+
+/* ── grilles ── */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px}
+@media(max-width:860px){.g3,.g2{grid-template-columns:1fr}}
+.carte{background:var(--nk-carte);border:1px solid var(--nk-trait);border-radius:14px;padding:26px}
+.carte h3{font-size:21px;margin-bottom:9px}
+.carte p{color:var(--nk-brume);font-size:15.5px}
+.carte .prix{margin-top:16px;font-size:14px;color:var(--nk-teal)}
+
+/* ── réalisations ── */
+.real{aspect-ratio:1;border-radius:14px;border:1px solid var(--nk-trait);position:relative;overflow:hidden;
+  background:linear-gradient(200deg,color-mix(in srgb,var(--nk-accent) 14%,var(--nk-fond)),var(--nk-fond))}
+.real figcaption{position:absolute;inset:auto 0 0 0;padding:16px;font-size:14px;
+  background:linear-gradient(transparent,color-mix(in srgb,var(--nk-fond) 92%,transparent))}
+.real figcaption b{display:block;font-weight:600}
+.real figcaption span{color:var(--nk-brume)}
+
+/* ── étapes ── */
+.etapes{counter-reset:e;display:grid;gap:0;margin-top:38px;border-top:1px solid var(--nk-trait)}
+.etape{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--nk-trait)}
+.etape::before{counter-increment:e;content:"0" counter(e);font-family:var(--nk-titre);
+  font-size:28px;color:var(--nk-teal)}
+.etape p{color:var(--nk-brume);font-size:15.5px;margin-top:5px}
+
+/* ── avis ── */
+blockquote{background:var(--nk-carte);border:1px solid var(--nk-trait);border-left:2px solid var(--nk-accent);
+  border-radius:0 14px 14px 0;padding:26px}
+blockquote p{font-size:17px}
+blockquote footer{margin-top:14px;font-size:14px;color:var(--nk-brume)}
+
+/* ── zone ── */
+.zone{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.zone span{border:1px solid var(--nk-trait);border-radius:999px;padding:7px 14px;font-size:14px;color:var(--nk-brume)}
+
+/* ── faq ── */
+details{border-bottom:1px solid var(--nk-trait);padding:19px 0}
+summary{cursor:pointer;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--nk-teal);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--nk-brume);margin-top:11px;max-width:70ch}
+
+/* ── formulaire ── */
+.form{background:var(--nk-carte);border:1px solid var(--nk-trait);border-radius:16px;padding:30px}
+label{display:block;font-size:14px;color:var(--nk-brume);margin:16px 0 6px}
+input,select,textarea{width:100%;background:var(--nk-fond);border:1px solid var(--nk-trait);
+  color:var(--nk-encre);border-radius:9px;padding:13px;font:inherit;font-size:16px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--nk-accent);outline-offset:1px}
+.form .btn{margin-top:22px;width:100%}
+.form small{display:block;margin-top:12px;color:var(--nk-brume);font-size:13px}
+
+footer.pied{border-top:1px solid var(--nk-trait);padding:44px 0;color:var(--nk-brume);font-size:14.5px}
+footer.pied a{color:var(--nk-brume)}
+.pied-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}
+@media(max-width:720px){.pied-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#"><svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>Atelier Nord</a>
+    <nav>
+      <a href="#metiers">Nos métiers</a>
+      <a href="#chantiers">Chantiers</a>
+      <a href="#methode">Comment ça se passe</a>
+      <a href="#zone">Zone d'intervention</a>
+    </nav>
+    <a class="tel" href="tel:+33600000000">06 00 00 00 00</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="dispo"><i class="pt"></i> 2 créneaux libres en octobre</div>
+      <h1>Votre toiture tient trente ans. Le devis arrive demain.</h1>
+      <p class="acc">Charpente, couverture et rénovation à Rouen et 40 km autour. On vient voir, on chiffre, on donne une date. Pas de « je vous rappelle ».</p>
+      <div class="cta">
+        <a class="btn" href="#devis">Demander mon devis</a>
+        <a class="btn btn2" href="#chantiers">Voir 12 chantiers finis</a>
+      </div>
+      <p class="rassure">Décennale AXA n° 000 000 · 18 ans de métier · Devis gratuit et chiffré au poste</p>
+    </div>
+    <figure class="visuel"><span>[ photo chantier — 1200 × 1500 px ]</span></figure>
+  </section>
+</div>
+
+<div class="wrap"><section style="border:0;padding-top:0">
+  <div class="chiffres">
+    <div><b>24 h</b><small>délai de réponse</small></div>
+    <div><b>340</b><small>toitures posées</small></div>
+    <div><b>4,9</b><small>sur 87 avis Google</small></div>
+    <div><b>10 ans</b><small>garantie décennale</small></div>
+  </div>
+</section></div>
+
+<div class="wrap"><section id="metiers">
+  <p class="sur">Nos métiers</p>
+  <h2>Trois choses, faites correctement.</h2>
+  <p class="sous">On ne fait pas de piscine ni de véranda. Ce qu'on fait, on le fait depuis dix-huit ans.</p>
+  <div class="g3">
+    <article class="carte">
+      <h3>Charpente</h3>
+      <p>Traditionnelle ou fermette, neuf et reprise. Bois traité classe 2, assemblages chevillés, calcul de charge fourni.</p>
+      <p class="prix">À partir de 180 € / m²</p>
+    </article>
+    <article class="carte">
+      <h3>Couverture</h3>
+      <p>Tuile terre cuite, ardoise, zinc. Dépose de l'ancienne couverture, écran sous-toiture, évacuation comprise.</p>
+      <p class="prix">À partir de 95 € / m²</p>
+    </article>
+    <article class="carte">
+      <h3>Rénovation de combles</h3>
+      <p>Isolation, plancher porteur, ouverture de toit. On sort une pièce habitable, pas un grenier repeint.</p>
+      <p class="prix">Sur devis — visite obligatoire</p>
+    </article>
+  </div>
+</section></div>
+
+<div class="wrap"><section id="chantiers">
+  <p class="sur">Chantiers</p>
+  <h2>Ce qu'on a livré cette année.</h2>
+  <div class="g3">
+    <figure class="real"><figcaption><b>Longère — Duclair</b><span>Charpente + ardoise · 11 jours</span></figcaption></figure>
+    <figure class="real"><figcaption><b>Pavillon — Barentin</b><span>Toiture tuile 140 m² · 6 jours</span></figcaption></figure>
+    <figure class="real"><figcaption><b>Corps de ferme — Yvetot</b><span>Combles aménagés · 4 semaines</span></figcaption></figure>
+  </div>
+</section></div>
+
+<div class="wrap"><section id="methode">
+  <p class="sur">Comment ça se passe</p>
+  <h2>Quatre étapes, aucune surprise.</h2>
+  <div class="etapes">
+    <div class="etape"><div><h3>Vous appelez ou vous écrivez</h3><p>On répond le jour même. Deux questions au téléphone suffisent à savoir si c'est pour nous.</p></div></div>
+    <div class="etape"><div><h3>On vient voir</h3><p>Visite gratuite sous 5 jours. On monte, on mesure, on prend des photos de ce qui ne va pas.</p></div></div>
+    <div class="etape"><div><h3>Devis chiffré sous 24 h</h3><p>Poste par poste, matériaux nommés, délai daté. Le prix du devis est le prix de la facture.</p></div></div>
+    <div class="etape"><div><h3>Chantier et réception</h3><p>Une date d'entrée, une date de sortie. Photos avancement chaque soir sur votre téléphone.</p></div></div>
+  </div>
+</section></div>
+
+<div class="wrap"><section>
+  <p class="sur">Ce qu'ils en disent</p>
+  <h2>87 avis, 4,9 de moyenne.</h2>
+  <div class="g2">
+    <blockquote><p>« Devis reçu le lendemain de la visite, au centime près ce qui était annoncé. Chantier fini avec deux jours d'avance. »</p><footer>Sylvie M. — Duclair, mai 2026</footer></blockquote>
+    <blockquote><p>« J'avais eu trois artisans avant qui n'ont jamais rappelé. Là on m'a donné une date et elle a été tenue. »</p><footer>Karim B. — Barentin, mars 2026</footer></blockquote>
+  </div>
+</section></div>
+
+<div class="wrap"><section id="zone">
+  <p class="sur">Zone d'intervention</p>
+  <h2>40 km autour de Rouen.</h2>
+  <p class="sous">Au-delà, on décline honnêtement plutôt que de facturer le déplacement.</p>
+  <div class="zone">
+    <span>Rouen</span><span>Barentin</span><span>Duclair</span><span>Yvetot</span><span>Elbeuf</span>
+    <span>Pavilly</span><span>Maromme</span><span>Bois-Guillaume</span><span>Caudebec</span><span>Le Trait</span>
+  </div>
+</section></div>
+
+<div class="wrap"><section>
+  <p class="sur">Questions</p>
+  <h2>Ce qu'on nous demande le plus.</h2>
+  <details open><summary>Le devis est-il vraiment gratuit ?</summary><p>Oui, visite comprise, dans la zone d'intervention. Aucun acompte n'est demandé avant la signature.</p></details>
+  <details><summary>Sous quel délai peut-on démarrer ?</summary><p>Trois à six semaines selon la saison. Une fuite active passe devant le reste, on le dit dès l'appel.</p></details>
+  <details><summary>Y a-t-il des aides pour l'isolation des combles ?</summary><p>MaPrimeRénov' et les CEE selon vos revenus. On fournit les attestations RGE et le devis au format attendu par l'organisme.</p></details>
+  <details><summary>Que couvre la garantie décennale ?</summary><p>Tout ce qui touche à l'étanchéité et à la solidité de l'ouvrage, dix ans à compter de la réception. Attestation jointe au devis.</p></details>
+</section></div>
+
+<div class="wrap"><section id="devis">
+  <div class="g2" style="margin-top:0;align-items:start">
+    <div>
+      <p class="sur">Devis</p>
+      <h2>Dites-nous ce qui ne va pas.</h2>
+      <p class="sous">Réponse le jour même, visite sous cinq jours, devis chiffré sous vingt-quatre heures après la visite. Si le chantier n'est pas pour nous, on vous le dit tout de suite.</p>
+      <p class="rassure" style="margin-top:26px">Ou par téléphone : <a href="tel:+33600000000"><b>06 00 00 00 00</b></a> — du lundi au samedi, 7 h – 19 h.</p>
+    </div>
+    <form class="form" id="nkContact">Bien reçu.</h3><p style=\'color:var(--nk-brume);margin-top:8px\'>On vous rappelle aujourd\'hui.</p>'">
+      <label for="n">Votre nom</label><input id="n" required>
+      <label for="t">Téléphone</label><input id="t" type="tel" required>
+      <label for="c">Commune</label><input id="c" required>
+      <label for="b">Ce dont vous avez besoin</label>
+      <select id="b"><option>Toiture à refaire</option><option>Fuite / réparation</option><option>Charpente</option><option>Combles à aménager</option><option>Je ne sais pas encore</option></select>
+      <label for="m">Deux mots de plus (facultatif)</label><textarea id="m" rows="3"></textarea>
+      <button class="btn" type="submit">Envoyer ma demande</button>
+      <small>Vos coordonnées servent à vous rappeler, rien d'autre. Aucune revente, aucune newsletter.</small>
+    </form>
+  </div>
+</section></div>
+</main>
+
+<script>
+document.getElementById('nkContact').addEventListener('submit', function (e) {
+  e.preventDefault();
+  /* Brancher ici : fetch('/api/lead', {method:'POST', ...}) ou webhook n8n */
+  this.innerHTML = '<h3 style="font-family:var(--nk-titre);font-weight:400;font-size:24px">Bien re\u00e7u.</h3>' +
+    '<p style="color:var(--nk-brume);margin-top:8px">On vous rappelle aujourd\'hui avant 19 h.</p>';
+});
+</script>
+
+<footer class="pied"><div class="wrap"><div class="pied-grid">
+  <div>
+    <div class="logo" style="margin-bottom:10px"><svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>Atelier Nord</div>
+    <p>Charpente, couverture, rénovation.<br>12 rue des Charrons, 76000 Rouen</p>
+  </div>
+  <div><p><b style="color:var(--nk-encre)">Contact</b><br>06 00 00 00 00<br>contact@atelier-nord.fr</p></div>
+  <div><p><b style="color:var(--nk-encre)">Légal</b><br><a href="mentions-legales.html">Mentions légales</a><br><a href="confidentialite.html">Confidentialité</a><br>SIRET 000 000 000 00000</p></div>
+</div></div></footer>
+
+</body>
+</html>
